@@ -15,7 +15,7 @@ BTCz.in gateway for cubecart
 
 ## Preview
 #### Settings
-![settings](https://i.imgur.com/Z58h3Aq.png)
+![settings](https://i.imgur.com/ku5YAsi.png)
 #### Checkout Selection
 ![gateway](https://i.imgur.com/loOoXsT.png)
 #### Checkout iFrame
