@@ -154,12 +154,7 @@ class Gateway {
 		}
 		else if(strlen($RESP)) $GLOBALS['gui']->setError($RESP);
 		else $GLOBALS['gui']->setError("Error: No response from API"); //Unknown error		
-		
-		// Display payment result message
-		if (!empty($this->_result_message))	{
-			$GLOBALS['gui']->setError($this->_result_message);
-		}
-		
+			
 		$GLOBALS['smarty']->assign('CUSTOMER', $this->_basket['billing_address']);
 		$GLOBALS['smarty']->assign('module', $this->_module);
 		
