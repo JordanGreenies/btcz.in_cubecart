@@ -60,16 +60,11 @@ class Gateway {
                 'p_email' => urlencode($MerchantEmail),
                 'p_secret' => urlencode($Secret),
                 'p_expire' => urlencode($Expire),
-				'p_success_url' => urlencode($ReturnURL)	
+		'p_success_url' => urlencode($ReturnURL),
+		'p_currency_code' => urlencode($CurrencyCode),
+		'p_amount' => urlencode($Amount)		
         );
-		
-        if($CurrencyCode == "USD")
-            $fields['p_amount_usd'] = urlencode($Amount);
-        else if($CurrencyCode == "EUR")	
-            $fields['p_amount_eur'] = urlencode($Amount);
-        else
-            return "Error: Unsupported currency.";
-		
+			
         $fields_string = "";
         foreach($fields as $key=>$value) { $fields_string .= $key.'='.$value.'&'; }
         rtrim($fields_string, '&');
@@ -142,8 +137,9 @@ class Gateway {
 	
 		if(empty($JSON_RESP))
 		{
+			$current_currency_code = ($GLOBALS['session']->has('currency', 'client')) ? $GLOBALS['session']->get('currency', 'client') : $GLOBALS['config']->get('config', 'default_currency');
 			$ReturnURL = CC_STORE_URL."/?_a=gateway&gateway=Bitcoinz";
-			$RESP =  $this->CreateGateway($this->_module['address'], $ReturnURL, $this->_module['email'], $this->_basket['cart_order_id'], $this->_basket['total'], 15,  $this->_module['sk_live'], $GLOBALS['config']->get('config', 'default_currency'));
+			$RESP =  $this->CreateGateway($this->_module['address'], $ReturnURL, $this->_module['email'], $this->_basket['cart_order_id'], $this->_basket['total'], 15,  $this->_module['sk_live'], $current_currency_code);
 			$JSON_RESP = json_decode($RESP);
 		}
 		
