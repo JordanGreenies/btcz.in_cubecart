@@ -1,6 +1,5 @@
 # About btcz.in_cubecart
   BTCz.in gateway for cubecart
-  Accept BTCz payments, auto transaction verification
 
 ## Requirements
 * Requires CubeCart 5.0.0 - 6.x.x
