@@ -9,7 +9,7 @@ BTCz.in gateway for cubecart
 
 ## Installation
  1. Copy all files to the relative location
- 2. [Extensions -> Manage Extensions] and enable BitcoinZ
+ 2. Goto admin panel [Extensions -> Manage Extensions] and enable BitcoinZ
  3. Edit the module and add your information
  4. Test gateway
 
