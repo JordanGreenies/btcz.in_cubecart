@@ -87,7 +87,7 @@ class Gateway {
     }
 
 	public function form() {
-		$InvoiceSessionKey = 'BTCz_UrlID'.$this->_basket['cart_order_id'];
+		$InvoiceSessionKey = 'BTCz_UrlID'.$this->_basket['cart_order_id'].$this->_basket['total'];
 		
 		if (isset($_SESSION[$InvoiceSessionKey])) //our gateway has finished, lets check the data
 		{
